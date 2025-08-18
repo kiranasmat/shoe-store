@@ -25,13 +25,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-light text-decoration-none">
+                <Link href="/shop" className="text-light text-decoration-none">
                   Shop
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-light text-decoration-none">
-                  Products
+                <Link href="/new-arrivals" className="text-light text-decoration-none">
+                  New Arrivals
                 </Link>
               </li>
               <li>
