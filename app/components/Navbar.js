@@ -5,6 +5,7 @@ import { selectCartCount } from "../redux/slices/cartSlice";
 import { selectShoes } from "../redux/slices/shoeSlice";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "react-toastify";
 export default function Navbar() {
     const [term, setTerm] = useState("");
     const shoes = useSelector(selectShoes);
@@ -19,10 +20,11 @@ export default function Navbar() {
       );
 
       if (product) {
-        // Go to product detail page
+          // Go to product detail page
+          toast.success("product found!")
         router.push(`/product/${product.id}`);
       } else {
-        alert("Product not found");
+       toast.error("Product not found!"); 
       }
     };
   return (
@@ -47,18 +49,22 @@ export default function Navbar() {
           <div className="d-flex justify-content-center w-100">
             <ul className="navbar-nav gap-3 mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" href="/">
+                <Link
+                  className="nav-link active  text-white"
+                  aria-current="page"
+                  href="/"
+                >
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="/shop">
+                <Link className="nav-link  text-white" href="/shop">
                   Shop
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="#">
-                  Product
+                <Link className="nav-link  text-white" href="#">
+                  New Arrivals
                 </Link>
               </li>
             </ul>

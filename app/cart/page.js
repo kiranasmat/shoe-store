@@ -15,11 +15,11 @@ export default function CartPage() {
   const dispatch = useDispatch(); 
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-3">Your Bag</h2>
+    <div className="container  m-auto">
+      <h2 className="mb-3">Your Cart</h2>
 
       {items.length === 0 ? (
-        <p>No items yet.</p> 
+        <p>Your Cart is Empty Please keep Shopping!</p> 
       ) : (
         <>
           {items.map((i) => (
@@ -37,20 +37,20 @@ export default function CartPage() {
 
               <div className="d-flex align-items-center gap-2">
                 <button
-                  className="btn btn-outline-secondary btn-sm"
+                  className="btn btn-custom btn-sm"
                   onClick={() => dispatch(decreaseQty(i.id))}
                 >
                   -
                 </button>
                 <span>{i.qty}</span>
                 <button
-                  className="btn btn-outline-secondary btn-sm"
+                  className="btn btn-custom btn-sm"
                   onClick={() => dispatch(increaseQty(i.id))} 
                 >
                   +
                 </button>
                 <button
-                  className="btn btn-outline-danger btn-sm"
+                  className="btn btn-danger btn-sm"
                   onClick={() => dispatch(removeFromCart(i.id))} 
                 >
                   Remove

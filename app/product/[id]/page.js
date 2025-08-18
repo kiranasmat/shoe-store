@@ -4,7 +4,8 @@ import { selectShoes } from "@/app/redux/slices/shoeSlice";
 import { useParams } from "next/navigation";
 
 export default function ProductPage() {
-  const { id } = useParams(); // get dynamic id from URL
+const params = useParams();
+const id = params.id; // get dynamic id from URL
   const shoes = useSelector(selectShoes);
   const product = shoes.find((s) => s.id === parseInt(id));
 
