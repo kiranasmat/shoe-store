@@ -68,7 +68,7 @@ export default function CartPage() {
             >
               Clear Cart
             </button>
-            <h4>Total: ${total}</h4>
+            <h4>Total Bill: ${total}</h4>
           </div>
         </>
       )}
