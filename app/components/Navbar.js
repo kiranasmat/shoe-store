@@ -63,7 +63,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link  text-white" href="#">
+                <Link className="nav-link  text-white" href="/new-arrivals">
                   New Arrivals
                 </Link>
               </li>

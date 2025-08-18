@@ -5,20 +5,30 @@ import { addToCart } from "../redux/slices/cartSlice";
 import { toast } from "react-toastify";
 import Link from "next/link";
 
-export default function ShoeCard() {
-
+export default function NewArrivalsPage() {
   const shoes = useSelector(selectShoes);
-    const dispatch = useDispatch();
-     const handleAddToCart = (e, shoe) => {
-       e.preventDefault(); 
-       dispatch(addToCart(shoe));
-       toast.success(`${shoe.name} added to cart!`);
-     };
-   
+  const dispatch = useDispatch();
+
+  // Filter only new arrivals
+  const newArrivals = shoes.filter((s) => s.newArrival);
+
+  const handleAddToCart = (e, shoe) => {
+    e.preventDefault();
+    dispatch(addToCart(shoe));
+    toast.success(`${shoe.name} added to cart!`);
+  };
+
   return (
     <div className="container mt-4">
+      <h2
+        className="mb-4 text-center text-uppercase fw-bold"
+        style={{ color: "#69385C", letterSpacing: "2px" }}
+      >
+        Sole Stories
+      </h2>
       <div className="row g-3">
-        {shoes.map((s) => (
+        {newArrivals.length === 0 && <p>No new arrivals at the moment.</p>}
+        {newArrivals.map((s) => (
           <div className="col-12 col-sm-6 col-md-4" key={s.id}>
             <Link
               href={`/product/${s.id}`}

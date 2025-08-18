@@ -19,7 +19,8 @@ export default function CartPage() {
       <h2 className="mb-3">Your Cart</h2>
 
       {items.length === 0 ? (
-        <p>Your Cart is Empty Please keep Shopping!</p> 
+              <p>Your Cart is Empty Please keep Shopping!</p> 
+              
       ) : (
         <>
           {items.map((i) => (
@@ -50,7 +51,8 @@ export default function CartPage() {
                   +
                 </button>
                 <button
-                  className="btn btn-danger btn-sm"
+                className="btn btn-danger btn-sm"
+                          
                   onClick={() => dispatch(removeFromCart(i.id))} 
                 >
                   Remove
@@ -64,7 +66,7 @@ export default function CartPage() {
               className="btn btn-outline-danger"
               onClick={() => dispatch(clearCart())}
             >
-              Clear Bag
+              Clear Cart
             </button>
             <h4>Total: ${total}</h4>
           </div>
