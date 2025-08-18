@@ -1,0 +1,24 @@
+.custom-color{
+  color:#69385C;
+}
+.navbar-custom{
+  background-color:#ae9180;
+}
+.btn-custom{
+background-color: #69385C;
+}
+.custom-brand {
+  font-family: 'Brush Script MT', cursive; /* You can pick Google Fonts too */
+  font-size: 28px;
+  font-weight: bold;
+  color: #69385C; /* Stylish pink/red shade */
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, color 0.3s ease;
+  
+}
+
+.brand-name:hover {
+  color: #69385C; /* Darker shade on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
