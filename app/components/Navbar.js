@@ -27,7 +27,7 @@ export default function Navbar() {
     };
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-custom">
+      <nav className="navbar navbar-expand-lg navbar-custom mb-4">
         <div className="container-fluid">
           <Link className="navbar-brand custom-brand custom-color " href="#">
             SoleMate
@@ -52,7 +52,7 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" href="#">
+                <Link className="nav-link" href="/shop">
                   Shop
                 </Link>
               </li>
