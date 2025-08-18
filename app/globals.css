@@ -4,9 +4,22 @@
 .navbar-custom{
   background-color:#ae9180;
 }
-.btn-custom{
-background-color: #69385C;
+.btn-custom {
+  background-color: #69385C;
+  color: white; /* Ensure text is visible */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
+
+.btn-custom:hover {
+  background-color: #573450; /* slightly darker shade */
+  transform: scale(1.05);    /* subtle zoom effect */
+  color: white;              /* keep text visible */
+}
+
 .custom-brand {
   font-family: 'Brush Script MT', cursive; /* You can pick Google Fonts too */
   font-size: 28px;

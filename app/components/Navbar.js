@@ -1,5 +1,9 @@
 import Link from "next/link";
+import { FiShoppingBag } from "react-icons/fi";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "../redux/slices/cartSlice";
 export default function Navbar() {
+    const cartCount = useSelector(selectCartCount); 
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-custom">
@@ -7,8 +11,13 @@ export default function Navbar() {
             <Link className="navbar-brand custom-brand custom-color " href="#">
               SoleMate
             </Link>
-            <Link className="nav-link  custom-color" href="#">
-              <i className="bi bi-cart-fill" />
+            <Link href="/cart" className="nav-link custom-color position-relative">
+              <FiShoppingBag size={24} />
+              {cartCount > 0 && (
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {cartCount}
+                </span>
+              )}
             </Link>
 
             <div className="d-flex justify-content-center w-100">
