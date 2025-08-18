@@ -25,7 +25,7 @@ export default function ShoeCard() {
               className="text-decoration-none text-dark"
             >
               <div className="card h-100">
-                <img src={s.image} className="card-img-top" alt={s.name} />
+                <img src={s.image} className="card-img-top h-80" alt={s.name} />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{s.name}</h5>
                   <p className="card-text mb-2">${s.price}</p>
