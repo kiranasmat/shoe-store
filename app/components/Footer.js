@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="footer-custom text-light pt-4 pb-2 mt-4">
+    <footer className="footer-custom text-light pt-4 pb-2">
       <div className="container">
         <div className="row">
           {/* About Section */}
