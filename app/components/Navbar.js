@@ -29,7 +29,7 @@ export default function Navbar() {
     };
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-custom">
+      <nav className="navbar navbar-expand-lg navbar-custom mb-2">
         <div className="container-fluid">
           <Link className="navbar-brand custom-brand custom-color " href="#">
             SoleMate
