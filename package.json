@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ducanh2912/next-pwa": "^10.2.9",
     "@reduxjs/toolkit": "^2.8.2",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
