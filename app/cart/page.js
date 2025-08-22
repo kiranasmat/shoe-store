@@ -7,20 +7,15 @@ import {
   increaseQty,
   decreaseQty,
   removeFromCart,
-  clearCart,
-  setCart
+  clearCart
+  
 } from "@/app/redux/slices/cartSlice";
 
 export default function CartPage() {
   const items = useSelector(selectCartItems);
   const total = useSelector(selectCartTotal); 
   const dispatch = useDispatch(); 
-    useEffect(() => {
-      if (typeof window !== "undefined") {
-        const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
-        dispatch(setCart(savedCart));
-      }
-    }, [dispatch]);
+  
     useEffect(() => {
       if (typeof window !== "undefined") {
         localStorage.setItem("cart", JSON.stringify(items));
