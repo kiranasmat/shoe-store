@@ -36,6 +36,9 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
     },
+    setCart: (state, action) => {
+      state.items = action.payload;
+    },
   },
 });
 export const {
@@ -44,6 +47,7 @@ export const {
   increaseQty,
   decreaseQty,
   clearCart,
+  setCart
 } = cartSlice.actions;
 export const selectCartItems = (state) => state.cart.items;
 export const selectCartCount = (state) =>

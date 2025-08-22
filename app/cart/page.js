@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"; 
 import {
   selectCartItems,
@@ -7,12 +8,27 @@ import {
   decreaseQty,
   removeFromCart,
   clearCart,
+  setCart
 } from "@/app/redux/slices/cartSlice";
 
 export default function CartPage() {
   const items = useSelector(selectCartItems);
   const total = useSelector(selectCartTotal); 
   const dispatch = useDispatch(); 
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        const savedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+        dispatch(setCart(savedCart));
+      }
+    }, [dispatch]);
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(items));
+      }
+    }, [items]);
+
+
+
 
   return (
     <div className="container  m-auto">
