@@ -46,7 +46,7 @@ export default function Navbar() {
             )}
           </Link>
 
-          <div className="d-flex justify-content-center w-100">
+          <div className="d-flex flex-column flex-lg-row justify-content-center w-100 align-items-center">
             <ul className="navbar-nav gap-3 mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
@@ -69,9 +69,13 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <form className="d-flex" role="search" onSubmit={handleSearch}>
+          <form
+            className="d-flex flex-column flex-lg-row w-100 w-lg-auto mt-2 mt-lg-0"
+            role="search"
+            onSubmit={handleSearch}
+          >
             <input
-              className="form-control me-2"
+              className="form-control mb-2 mb-lg-0 me-lg-2"
               type="search"
               placeholder="Search shoes..."
               value={term}
