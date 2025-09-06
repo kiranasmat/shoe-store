@@ -19,7 +19,7 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("token"); // remove JWT
     toast.info("Logged out successfully!");
-   router.push("/signup") // redirect to signup page
+   router.push("/signUp") // redirect to signup page
   };
 
    

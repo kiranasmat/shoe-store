@@ -2,6 +2,7 @@
 import { useState,useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Signup() {
      const router = useRouter();
@@ -129,6 +130,10 @@ export default function Signup() {
                   >
                     Submit
                   </button>
+                  <div className="d-flex">
+                    <p>Are you already registered?</p>
+                    <Link href="/login">Login</Link>
+                  </div>
                 </form>
               </div>
             </div>
