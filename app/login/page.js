@@ -1,8 +1,9 @@
 "use client"
 import { useState } from "react";
 import { toast } from "react-toastify";
-
+import { useRouter } from "next/navigation";
 export default function Login() {
+   const router = useRouter();
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -36,7 +37,7 @@ export default function Login() {
             if (data.success) {
               localStorage.setItem("token", data.token); // store JWT
                 toast.success("Login successful!");
-                 window.location.href = "/";
+               router.push("/")
             } else {
                toast.error(data.message || "Login failed");
              }
