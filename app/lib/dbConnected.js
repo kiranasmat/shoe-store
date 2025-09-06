@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 let isConnected = false;
 export default async function connectDB() {
     if (isConnected) {
+         console.log("MONGODB_URI:", process.env.MONGODB_URI);
         console.log("mongoDB is already connected")
         return
     }

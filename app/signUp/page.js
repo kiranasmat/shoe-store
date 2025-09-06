@@ -1,30 +1,62 @@
 "use client"
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Signup() {
     const [formData, setFormData] = useState({
-        name: " ",
-        email: " ",
-        password: " ",
-        confirmPassword:" "
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword:""
     })
     const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     }
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log("Signup Data:", formData);
-        alert("Signup successful!");
+         if (
+           !formData.name ||
+           !formData.email ||
+           !formData.password ||
+           !formData.confirmPassword
+         ) {
+           alert("Please fill all fields.");
+           return;
+         }
+
+         if (formData.password !== formData.confirmPassword) {
+           alert("Passwords do not match.");
+           return;
+         }
+        try {
+            const res = await fetch("/api/signup", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                name: formData.name,
+                email: formData.email,
+                password: formData.password,
+              }),
+            });
+            const data = await res.json();
+             if (data.success) {
+               toast.success("User created successfully!");
+             } else {
+               toast.error(data.message || "Failed to create user.");
+             }
+        } catch (error) {
+           console.error("Signup error:", error);
+           alert("Server error. Please try again."); 
+        }
     }
 
     return (
-      <div className="container mt-5">
+      <div className="container mt-5 bordered ">
         <div className="row justify-content-center">
           <div className="col-md-6">
-            <div className="card-shadow">
+            <div className="card shadow-lg border-0">
               <div className="card-body">
-                <h3 className="card-title text-center mb-4">Sign Up</h3>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
                     <label htmlFor="name" className="form-label">
@@ -35,22 +67,22 @@ export default function Signup() {
                       className="form-control"
                       id="name"
                       name="name"
-                        value={formData.name}
-                        onChange={handleChange}
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="Enter your full name"
                     />
                   </div>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">
                       Email address
-                   </label>
+                    </label>
                     <input
                       type="email"
                       className="form-control"
                       id="email"
                       name="email"
-                        value={formData.email}
-                        onChange={handleChange}
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="Enter your email"
                     />
                   </div>
@@ -63,8 +95,8 @@ export default function Signup() {
                       className="form-control"
                       id="password"
                       name="password"
-                        value={formData.password}
-                        onChange={handleChange}
+                      value={formData.password}
+                      onChange={handleChange}
                       placeholder="Enter your password"
                     />
                   </div>
@@ -77,12 +109,15 @@ export default function Signup() {
                       className="form-control"
                       id="confirmPassword"
                       name="confirmPassword"
-                        value={formData.confirmPassword}
-                        onChange={handleChange}
+                      value={formData.confirmPassword}
+                      onChange={handleChange}
                       placeholder="Confirm your password"
                     />
                   </div>
-                  <button className="btn btn-custom text-white w-100" type="submit">
+                  <button
+                    className="btn btn-custom text-white w-100"
+                    type="submit"
+                  >
                     Submit
                   </button>
                 </form>
