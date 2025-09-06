@@ -70,7 +70,7 @@ export default function Navbar() {
                     aria-current="page"
                     href="/signUp"
                   >
-                    Add New User
+                    SignUp
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -100,14 +100,7 @@ export default function Navbar() {
                   New Arrivals
                 </Link>
               </li>
-                  <li className="nav-item">
-                    <button
-                      onClick={handleLogout}
-                      className="btn btn-danger ms-2"
-                    >
-                      Logout
-                    </button>
-                  </li>
+                 
                 </>
               )}
             </ul>
@@ -128,7 +121,14 @@ export default function Navbar() {
             <button className="btn btn-custom text-white" type="submit">
               Search
             </button>
-           
+  
+                    <button
+                      onClick={handleLogout}
+                      className="btn btn-danger ms-2"
+                    >
+                      Logout
+                    </button>
+                  
           </form>
            )}
         </div>
