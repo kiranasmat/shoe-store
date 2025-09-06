@@ -52,6 +52,15 @@ export default function Navbar() {
                 <Link
                   className="nav-link active  text-white"
                   aria-current="page"
+                  href="/signUp"
+                >
+                  Add New User
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link active  text-white"
+                  aria-current="page"
                   href="/"
                 >
                   Home
