@@ -15,7 +15,7 @@ export default function Navbar() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token); // true if token exists
-  }, []);
+  });
   const handleLogout = () => {
     localStorage.removeItem("token"); // remove JWT
     toast.info("Logged out successfully!");

@@ -36,6 +36,7 @@ export default function Login() {
             const data = await res.json();
             if (data.success) {
               localStorage.setItem("token", data.token); // store JWT
+              router.refresh()
                 toast.success("Login successful!");
                router.push("/")
             } else {
