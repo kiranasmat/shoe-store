@@ -7,21 +7,12 @@ import { useRouter } from "next/navigation";
 import { useState,useEffect } from "react";
 import { toast } from "react-toastify";
 export default function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
    const [term, setTerm] = useState("");
    const shoes = useSelector(selectShoes);
    const router = useRouter();
   const cartCount = useSelector(selectCartCount);
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token); // true if token exists
-  });
-  const handleLogout = () => {
-    localStorage.removeItem("token"); // remove JWT
-    toast.info("Logged out successfully!");
-   router.push("/signUp") // redirect to signup page
-  };
-
+ 
    
     const handleSearch = (e) => {
       e.preventDefault();
@@ -46,8 +37,8 @@ export default function Navbar() {
           <Link className="navbar-brand custom-brand custom-color " href="/">
             SoleMate
           </Link>
-          {/* Cart only if logged in */}
-          {isLoggedIn && (
+       
+         
             <Link
               href="/cart"
               className="nav-link custom-color position-relative"
@@ -59,27 +50,11 @@ export default function Navbar() {
                 </span>
               )}
             </Link>
-          )}
+          
           <div className="d-flex flex-column flex-lg-row justify-content-center w-100 align-items-center">
             <ul className="navbar-nav gap-3 mb-2 mb-lg-0">
-               {!isLoggedIn ? (
-              <>
-                <li className="nav-item">
-                  <Link
-                    className="nav-link active  text-white"
-                    aria-current="page"
-                    href="/signUp"
-                  >
-                    SignUp
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link text-white" href="/login">
-                    Login
-                  </Link>
-                </li>
-              </>
-                 ) : (
+              
+             
                   <>
               <li className="nav-item">
                 <Link
@@ -102,10 +77,10 @@ export default function Navbar() {
               </li>
                  
                 </>
-              )}
+            
             </ul>
         </div>
-          {isLoggedIn && (
+         
           <form
             className="d-flex flex-column flex-lg-row w-100 w-lg-auto mt-2 mt-lg-0"
             role="search"
@@ -122,15 +97,10 @@ export default function Navbar() {
               Search
             </button>
   
-                    <button
-                      onClick={handleLogout}
-                      className="btn btn-danger ms-2"
-                    >
-                      Logout
-                    </button>
+                 
                   
           </form>
-           )}
+          
         </div>
       </nav>
     </div>
